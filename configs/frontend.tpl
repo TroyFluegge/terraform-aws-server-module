@@ -42,7 +42,7 @@ services:
   frontend:
     container_name: "frontend"
     network_mode: "host"
-    image: "hashicorpdemoapp/frontend:v0.0.3"
+    image: "hashicorpdemoapp/frontend:v0.0.4"
     volumes:
        - /etc/nginx/conf.d/:/etc/nginx/conf.d/
 EOF

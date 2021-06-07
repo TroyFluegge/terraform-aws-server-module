@@ -2,13 +2,13 @@ terraform {
   required_version = ">= 0.12"
 }
 
-data "aws_ami" "rhel_ami" {
+data "aws_ami" "centos" {
   most_recent = true
-  owners      = ["309956199498"]
+  owners      = ["125523088429"]
 
   filter {
     name   = "name"
-    values = ["*RHEL-7.3_HVM_GA-*"]
+    values = ["*CentOS 7.9*"]
   }
 }
 
@@ -21,12 +21,12 @@ data "template_file" "config" {
 
 resource "aws_instance" "instance" {
   instance_type               = "t2.micro"
-  ami                         = data.aws_ami.rhel_ami.id
+  ami                         = data.aws_ami.centos.id
   vpc_security_group_ids      = [ var.security_group_id ]
   subnet_id                   = var.vpc_subnet_ids
   associate_public_ip_address = true
   key_name                    = var.public_key
-  iam_instance_profile        = aws_iam_instance_profile.instance.id
+  #iam_instance_profile        = aws_iam_instance_profile.instance.id
   private_ip                  = var.private_ip
   tags                        = var.tags
 

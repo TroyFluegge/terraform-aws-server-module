@@ -20,7 +20,7 @@ services:
     environment:
       BIND_ADDRESS: ":8080"
       PRODUCT_API_URI: "http://${upstream_ip}:9090"
-    image: "hashicorpdemoapp/public-api:v0.0.1"
+    image: "hashicorpdemoapp/public-api:v0.0.4"
 EOF
 
 sudo /usr/local/bin/docker-compose up -d

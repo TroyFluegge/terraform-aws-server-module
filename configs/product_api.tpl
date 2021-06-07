@@ -29,7 +29,7 @@ services:
     network_mode: "host"
     environment:
       CONFIG_FILE: "/etc/secrets/db-creds"
-    image: "hashicorpdemoapp/product-api:v0.0.11"
+    image: "hashicorpdemoapp/product-api:v0.0.15"
     volumes:
        - /etc/secrets/db-creds:/etc/secrets/db-creds
 EOF'

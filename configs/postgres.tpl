@@ -21,7 +21,7 @@ services:
       POSTGRES_DB: "products"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "password"
-    image: "hashicorpdemoapp/product-api-db:v0.0.11"
+    image: "hashicorpdemoapp/product-api-db:v0.0.15"
 EOF
 
 sudo /usr/local/bin/docker-compose up -d
