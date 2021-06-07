@@ -2,15 +2,15 @@ terraform {
   required_version = ">= 0.12"
 }
 
-data "aws_ami" "centos" {
-  most_recent = true
-  owners      = ["125523088429"]
+# data "aws_ami" "centos" {
+#   most_recent = true
+#   owners      = ["125523088429"]
 
-  filter {
-    name   = "name"
-    values = ["*CentOS 7.9.2009 x86_64*"]
-  }
-}
+#   filter {
+#     name   = "name"
+#     values = ["*CentOS 7.9.2009 x86_64*"]
+#   }
+# }
 
 data "template_file" "config" {
   template = file("${path.module}/configs/${var.name}.tpl")
@@ -21,7 +21,7 @@ data "template_file" "config" {
 
 resource "aws_instance" "instance" {
   instance_type               = "t2.micro"
-  ami                         = data.aws_ami.centos.id
+  ami                         = ami-00f8e2c955f7ffa9b
   vpc_security_group_ids      = [ var.security_group_id ]
   subnet_id                   = var.vpc_subnet_ids
   associate_public_ip_address = true
