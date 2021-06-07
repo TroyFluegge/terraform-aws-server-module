@@ -25,7 +25,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids      = [ var.security_group_id ]
   subnet_id                   = var.vpc_subnet_ids
   associate_public_ip_address = true
-  key_name                    = var.public_key
+  #key_name                    = var.public_key
   #iam_instance_profile        = aws_iam_instance_profile.instance.id
   private_ip                  = var.private_ip
   tags                        = var.tags
