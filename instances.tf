@@ -21,7 +21,7 @@ data "template_file" "config" {
 
 resource "aws_instance" "instance" {
   instance_type               = "t2.micro"
-  ami                         = ami-00f8e2c955f7ffa9b
+  ami                         = "ami-00f8e2c955f7ffa9b"
   vpc_security_group_ids      = [ var.security_group_id ]
   subnet_id                   = var.vpc_subnet_ids
   associate_public_ip_address = true
