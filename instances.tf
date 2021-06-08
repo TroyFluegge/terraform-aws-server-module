@@ -3,7 +3,7 @@ terraform {
 }
 
 locals {
-  name = replace(var.name, "^-?\\w+", " ")
+  name = replace(var.name, "^[0-9A-Za-z_]+", "")
 }
 
 data "aws_ami" "centos" {
