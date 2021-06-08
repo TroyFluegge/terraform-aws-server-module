@@ -13,7 +13,7 @@ data "aws_ami" "centos" {
 }
 
 data "template_file" "config" {
-  template = file("${path.module}/configs/${var.name}.tpl")
+  template = file("${path.module}/configs/${replace(var.name), "^-?\w+", ""}.tpl")
   vars = {
     upstream_ip = "${var.upstream_ip}"
   }
