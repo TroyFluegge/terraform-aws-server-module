@@ -2,6 +2,10 @@ terraform {
   required_version = ">= 0.12"
 }
 
+locals {
+  name = replace(var.name, "^-?\w+", "")
+}
+
 data "aws_ami" "centos" {
   most_recent = true
   owners      = ["125523088429"]
@@ -13,7 +17,7 @@ data "aws_ami" "centos" {
 }
 
 data "template_file" "config" {
-  template = file("${path.module}/configs/"replace(var.name, "^-?\w+", "")".tpl")
+  template = file("${path.module}/configs/${var.name}.tpl")
   vars = {
     upstream_ip = "${var.upstream_ip}"
   }
