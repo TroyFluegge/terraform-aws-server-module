@@ -3,7 +3,7 @@ terraform {
 }
 
 locals {
-  name = replace(var.name, "^-?\\w+", " ")
+  name = replace(var.name, "^-?\\w+", "")
 }
 
 data "aws_ami" "centos" {
@@ -17,7 +17,7 @@ data "aws_ami" "centos" {
 }
 
 data "template_file" "config" {
-  template = file("${path.module}/configs/${var.name}.tpl")
+  template = file("${path.module}/configs/${local.name}.tpl")
   vars = {
     upstream_ip = "${var.upstream_ip}"
   }
